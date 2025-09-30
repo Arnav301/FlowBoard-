@@ -15,9 +15,9 @@ const Home = () => {
       <main className="main-content">
         <HeroSection />
         <FeaturesSection />
-        <PricingSection />
         <TemplatesSection />
         <ResourcesSection />
+        <PricingSection />
         <EnterpriseSection />
       </main>
       <Footer />
