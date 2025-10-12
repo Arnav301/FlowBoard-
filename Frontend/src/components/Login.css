@@ -1,0 +1,725 @@
+/* ==========================================
+   LOGIN COMPONENT - LIGHT THEME COMPACT
+   ========================================== */
+
+/* Main login container with compact width */
+.login-container {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Login card with light glassmorphism effect */
+.login-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.login-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.login-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   TAB NAVIGATION - LIGHT THEME
+   ========================================== */
+
+/* Tab navigation container with light background */
+.tab-navigation {
+  display: flex;
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Individual tab button with compact padding */
+.tab-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.tab-button:hover::before {
+  left: 100%;
+}
+
+.tab-button:hover {
+  color: #374151;
+  background: rgba(0, 0, 0, 0.03);
+  transform: translateY(-1px);
+}
+
+/* Active tab with white background */
+.tab-button.active {
+  color: #1f2937;
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Active tab indicator with blue gradient */
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+}
+
+/* Tab icon with compact size */
+.tab-icon {
+  font-size: 0.75rem;
+}
+
+/* ==========================================
+   FORM CONTENT - COMPACT LIGHT THEME
+   ========================================== */
+
+/* Form content container with compact padding */
+.form-content {
+  padding: 1.5rem;
+}
+
+/* Form section with fade animation */
+.form-section {
+  animation: fadeInSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Input group hover effects */
+.input-group {
+  transition: all 0.3s ease;
+}
+
+.input-group:hover .input-label {
+  color: #3b82f6;
+}
+
+.input-group:hover .auth-input:not(:focus) {
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Form header with compact spacing */
+.form-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Form title with dark text and compact size */
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+/* Form subtitle with gray text */
+.form-subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   AUTH FORM - COMPACT LIGHT INPUTS
+   ========================================== */
+
+/* Form container with compact spacing */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input group with compact spacing */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Input label with dark text and compact size */
+.input-label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #374151;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  transform-origin: left;
+}
+
+.input-label.active {
+  color: #3b82f6;
+  transform: translateY(-2px) scale(0.9);
+  font-weight: 600;
+}
+
+/* Label icon with compact size */
+.label-icon {
+  font-size: 0.75rem;
+}
+
+/* Input field with light theme styling */
+.auth-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  color: #1f2937;
+  font-size: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(5px);
+  will-change: transform;
+  position: relative;
+}
+
+.auth-input.focused {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.auth-input.error {
+  border-color: #ef4444;
+  background: rgba(254, 242, 242, 0.8);
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Error message styles */
+.error-message {
+  color: #ef4444;
+  font-size: 0.65rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  animation: slideInError 0.3s ease-out;
+}
+
+.error-message::before {
+  content: '⚠️';
+  font-size: 0.6rem;
+}
+
+@keyframes slideInError {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-input::placeholder {
+  color: #9ca3af;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 4px 12px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   PASSWORD INPUT - COMPACT LIGHT THEME
+   ========================================== */
+
+/* Password input wrapper for toggle button */
+.password-input-wrapper {
+  position: relative;
+}
+
+/* Password visibility toggle button */
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.password-toggle:hover {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+
+/* ==========================================
+   FORM OPTIONS - COMPACT LIGHT THEME
+   ========================================== */
+
+/* Form options container with compact spacing */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.25rem 0;
+}
+
+/* Remember me checkbox with light theme */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+  display: none;
+}
+
+/* Custom checkbox with light theme */
+.checkmark {
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.2rem;
+  background: transparent;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.remember-me input[type="checkbox"]:checked + .checkmark {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.remember-me input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: bold;
+}
+
+/* Forgot password link with blue color */
+.forgot-password {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  font-family: inherit;
+}
+
+.forgot-password:hover {
+  color: #2563eb;
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   AUTH BUTTON - COMPACT LIGHT THEME
+   ========================================== */
+
+/* Primary auth button with blue gradient */
+.auth-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.auth-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.auth-button:hover::before {
+  left: 100%;
+}
+
+.auth-button:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.auth-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  transition: all 0.1s ease;
+}
+
+.auth-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-button.loading {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+}
+
+/* Button icon with compact size */
+.button-icon {
+  font-size: 0.75rem;
+}
+
+/* ==========================================
+   LOADING SPINNER - COMPACT SIZE
+   ========================================== */
+
+/* Loading spinner with compact size */
+.loading-spinner {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   SOCIAL LOGIN - COMPACT LIGHT THEME
+   ========================================== */
+
+/* Social login container with light background */
+.social-login {
+  padding: 1rem 1.5rem 1.5rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Divider with light theme styling */
+.divider {
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.divider span {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0 0.75rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Social buttons container */
+.social-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Individual social button with light theme */
+.social-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.6rem 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  color: #374151;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(5px);
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.social-button:hover::before {
+  left: 100%;
+}
+
+.social-button:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.social-button:active {
+  transform: translateY(0) scale(0.98);
+  transition: all 0.1s ease;
+}
+
+.social-button.google:hover {
+  border-color: #db4437;
+  color: #db4437;
+}
+
+.social-button.github:hover {
+  border-color: #333;
+  color: #333;
+}
+
+.social-button.microsoft:hover {
+  border-color: #0078d4;
+  color: #0078d4;
+}
+
+/* Social icon with compact size */
+.social-icon {
+  font-size: 0.75rem;
+}
+
+/* ==========================================
+   FORGOT PASSWORD FORM - ENHANCED STYLING
+   ========================================== */
+
+/* Forgot password form container */
+.forgot-password-form {
+  animation: fadeInSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Back button styling */
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: #3b82f6;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+  font-family: inherit;
+}
+
+.back-btn:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.back-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.back-btn:hover svg {
+  transform: translateX(-2px);
+}
+
+/* Form header styling for forgot password */
+.forgot-password-form .form-header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.forgot-password-form .form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0.5rem 0;
+}
+
+.forgot-password-form .form-subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Enhanced forgot password button styling */
+.forgot-password-form .auth-button {
+  margin-top: 0.5rem;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZATION
+   ========================================== */
+
+/* Tablet and small desktop breakpoint */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 0.25rem;
+    max-width: 350px;
+  }
+  
+  .form-content {
+    padding: 1rem;
+  }
+  
+  .social-login {
+    padding: 0.75rem 1rem 1rem;
+  }
+  
+  .form-title {
+    font-size: 1.25rem;
+  }
+  
+  .tab-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .social-buttons {
+    gap: 0.5rem;
+  }
+}
+
+/* Mobile phone breakpoint */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 0.125rem;
+    max-width: 320px;
+  }
+  
+  .form-content {
+    padding: 0.75rem;
+  }
+  
+  .social-login {
+    padding: 0.75rem;
+  }
+  
+  .social-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-options {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .auth-form {
+    gap: 0.75rem;
+  }
+  
+  .form-title {
+    font-size: 1.125rem;
+  }
+}

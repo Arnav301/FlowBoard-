@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
-const HeroSection = () => {
+const HeroSection = React.memo(() => {
   const [typingText, setTypingText] = useState('');
   const [typingIndex, setTypingIndex] = useState(0);
   const [isDemoHovered, setIsDemoHovered] = useState(false);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
-  const fullText = "Visual collaboration reimagined";
+  const fullText = useMemo(() => "Visual collaboration reimagined", []);
 
-  // Typing animation effect
-  useEffect(() => {
+  // Optimized typing animation effect with useCallback
+  const handleTyping = useCallback(() => {
     if (typingIndex < fullText.length) {
       const timeout = setTimeout(() => {
         setTypingText(fullText.slice(0, typingIndex + 1));
-        setTypingIndex(typingIndex + 1);
+        setTypingIndex(prev => prev + 1);
       }, 100);
       return () => clearTimeout(timeout);
     } else if (!isTypingComplete) {
@@ -21,18 +21,27 @@ const HeroSection = () => {
     }
   }, [typingIndex, fullText, isTypingComplete]);
 
-  const handleStartTrial = () => {
+  useEffect(() => {
+    const cleanup = handleTyping();
+    return cleanup;
+  }, [handleTyping]);
+
+  const handleStartTrial = useCallback(() => {
     console.log('Starting free trial...');
     // Add actual signup logic here
-  };
+  }, []);
 
-  const handleWatchDemo = () => {
+  const handleWatchDemo = useCallback(() => {
     // Scroll to features section
     const featuresSection = document.querySelector('#features');
     if (featuresSection) {
       featuresSection.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
+
+  const handleDemoHover = useCallback((isHovered) => {
+    setIsDemoHovered(isHovered);
+  }, []);
   return (
     <section className="hero-section">
       <div className="hero-container">
@@ -45,16 +54,15 @@ const HeroSection = () => {
             </div>
 
             {/* Typing Animation Title */}
-            <h1 className="hero-title typing-container">
-              {typingText}
-              <span className={`typing-cursor ${isTypingComplete ? 'typing-complete' : ''}`}>|</span>
+            <h1 className="hero-title">
+              <span className="typing-text">{typingText}</span>
+              {!isTypingComplete && <span className="typing-cursor">|</span>}
             </h1>
 
             <p className="hero-description">
-              FlowBoard brings teams together on an infinite canvas where ideas flow freely. 
-              Draw, plan, prototype, and collaborate in real-time from anywhere in the world.
+              FlowBoard empowers teams to brainstorm, plan, and create together
+              — seamlessly across borders on an infinite, interactive canvas.
             </p>
-
             {/* Action Buttons */}
             <div className="hero-actions">
               <button className="btn-primary" onClick={handleStartTrial}>
@@ -88,8 +96,8 @@ const HeroSection = () => {
           <div className="hero-visual">
             <div 
               className={`demo-container bouncing ${isDemoHovered ? 'hovered' : ''}`}
-              onMouseEnter={() => setIsDemoHovered(true)}
-              onMouseLeave={() => setIsDemoHovered(false)}
+              onMouseEnter={() => handleDemoHover(true)}
+              onMouseLeave={() => handleDemoHover(false)}
             >
               {/* Collaboration Header */}
               <div className="demo-header">
@@ -158,6 +166,6 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
 
 export default HeroSection;

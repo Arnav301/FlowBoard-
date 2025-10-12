@@ -1,0 +1,386 @@
+/* ==========================================
+   AUTH PAGE STYLES - LIGHT THEME
+   ========================================== */
+
+/* Main page container with light gradient background */
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1f2937;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background overlay for depth */
+.auth-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ==========================================
+   HEADER SECTION - COMPACT LIGHT THEME
+   ========================================== */
+
+/* Sticky header with light glassmorphism effect */
+.auth-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0;
+}
+
+/* Header container with compact spacing */
+.auth-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Back button with light theme styling */
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  color: #374151;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Logo styling with compact size */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* ==========================================
+   MAIN CONTENT SECTION - COMPACT LAYOUT
+   ========================================== */
+
+/* Main content area with compact height */
+.auth-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px);
+  padding: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Container with compact max-width */
+.auth-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Grid layout with compact spacing */
+.auth-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+}
+
+/* ==========================================
+   PROMOTIONAL SECTION - LIGHT THEME
+   ========================================== */
+
+/* Promotional content with compact padding */
+.promotional-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+/* Header with icon and title */
+.promo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.promo-icon {
+  color: #3b82f6;
+}
+
+.promo-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Main title with compact size */
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+/* Highlighted text with blue gradient */
+.highlight {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGlow 2s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes textGlow {
+  0% {
+    filter: brightness(1) saturate(1);
+    transform: scale(1);
+  }
+  100% {
+    filter: brightness(1.1) saturate(1.2);
+    transform: scale(1.01);
+  }
+}
+
+/* Description text with light theme colors */
+.promo-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #6b7280;
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+/* ==========================================
+   FEATURE CARDS - COMPACT LIGHT THEME
+   ========================================== */
+
+/* Feature cards container with compact spacing */
+.feature-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+/* Individual feature card with light glassmorphism */
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Feature icon with blue background */
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 0.5rem;
+  color: #3b82f6;
+}
+
+/* Feature content area */
+.feature-content {
+  flex: 1;
+}
+
+/* Feature title with dark text */
+.feature-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+}
+
+/* Feature description with gray text */
+.feature-desc {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   STATISTICS SECTION - COMPACT LIGHT THEME
+   ========================================== */
+
+/* Statistics container with compact spacing */
+.stats-section {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat-item {
+  text-align: left;
+}
+
+/* Large stat numbers with dark text */
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+/* Stat labels with gray text */
+.stat-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ==========================================
+   FORM SECTION - CENTERED LAYOUT
+   ========================================== */
+
+/* Form section container */
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZATION
+   ========================================== */
+
+/* Tablet and small desktop breakpoint */
+@media (max-width: 768px) {
+  /* Stack content vertically on mobile */
+  .auth-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Reduce title size for mobile */
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  /* Compact header spacing */
+  .auth-header-container {
+    padding: 0 1rem;
+  }
+  
+  .back-button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .logo-text {
+    font-size: 1rem;
+  }
+  
+  /* Reduce main content height */
+  .auth-main {
+    min-height: calc(100vh - 60px);
+    padding: 0.5rem 0;
+  }
+  
+  /* Center stats on mobile */
+  .stats-section {
+    justify-content: center;
+  }
+  
+  .feature-cards {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Mobile phone breakpoint */
+@media (max-width: 480px) {
+  /* Further reduce title size */
+  .main-title {
+    font-size: 1.75rem;
+  }
+  
+  /* Compact description */
+  .promo-description {
+    font-size: 0.875rem;
+  }
+  
+  /* Minimal container padding */
+  .auth-container {
+    padding: 0 0.5rem;
+  }
+  
+  .promotional-section {
+    padding: 0.5rem 0;
+  }
+  
+  /* Stack stats vertically */
+  .stats-section {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  
+  /* Compact feature cards */
+  .feature-cards {
+    gap: 0.5rem;
+  }
+  
+  .feature-card {
+    padding: 0.75rem;
+  }
+}
+
