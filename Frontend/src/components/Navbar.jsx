@@ -2,7 +2,7 @@ import React from 'react';
 import { useApp } from '../context/AppContext';
 
 const Navbar = () => {
-  const { isMenuOpen, toggleMenu, setActiveSection } = useApp();
+  const { isMenuOpen, toggleMenu, setActiveSection, navigateToAuth } = useApp();
 
   const navItems = [
     { name: 'Features', href: '#features' },
@@ -47,8 +47,18 @@ const Navbar = () => {
 
         {/* Right Side Buttons */}
         <div className="navbar-actions">
-          <button className="btn-signin">Sign In</button>
-          <button className="btn-trial">Start Free Trial</button>
+          <button 
+            className="btn-signin"
+            onClick={() => navigateToAuth('login')}
+          >
+            Sign In
+          </button>
+          <button 
+            className="btn-trial"
+            onClick={() => navigateToAuth('signup')}
+          >
+            Start Free Trial
+          </button>
           
           {/* Mobile Menu Button */}
           <button 
@@ -79,8 +89,18 @@ const Navbar = () => {
             </a>
           ))}
           <div className="mobile-actions">
-            <button className="btn-signin mobile">Sign In</button>
-            <button className="btn-trial mobile">Start Free Trial</button>
+            <button 
+              className="btn-signin mobile"
+              onClick={() => navigateToAuth('login')}
+            >
+              Sign In
+            </button>
+            <button 
+              className="btn-trial mobile"
+              onClick={() => navigateToAuth('signup')}
+            >
+              Start Free Trial
+            </button>
           </div>
         </div>
       </div>

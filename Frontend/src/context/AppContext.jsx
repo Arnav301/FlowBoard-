@@ -18,6 +18,8 @@ export const AppProvider = ({ children }) => {
   const [activeTool, setActiveTool] = useState('select');
   const [progress, setProgress] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [currentPage, setCurrentPage] = useState('home');
+  const [authMode, setAuthMode] = useState('signup');
 
   // Scroll effect for navbar
   useEffect(() => {
@@ -64,6 +66,17 @@ export const AppProvider = ({ children }) => {
     setTimeout(() => clearInterval(interval), 2000);
   };
 
+  const navigateToAuth = (mode = 'signup') => {
+    setAuthMode(mode);
+    setCurrentPage('auth');
+    setIsMenuOpen(false);
+  };
+
+  const navigateToHome = () => {
+    setCurrentPage('home');
+    setIsMenuOpen(false);
+  };
+
   const value = {
     isMenuOpen,
     toggleMenu,
@@ -77,7 +90,11 @@ export const AppProvider = ({ children }) => {
     progress,
     setProgress,
     isAnimating,
-    startProgressAnimation
+    startProgressAnimation,
+    currentPage,
+    authMode,
+    navigateToAuth,
+    navigateToHome
   };
 
   return (
